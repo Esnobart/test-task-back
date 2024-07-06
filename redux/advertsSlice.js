@@ -29,9 +29,6 @@ const advertsSlice = createSlice({
             .addCase(fetchAdverts.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                if (action.payload.length < 4) {
-                    state.hasMore = false;
-                }
                 state.items = [...state.items, ...action.payload];
             })
             .addCase(fetchAdverts.rejected, state => {
@@ -40,5 +37,5 @@ const advertsSlice = createSlice({
             })
 });
 
-export const { incrementPage, resetPage } = advertsSlice.actions;
+export const { incrementPage, decrementPage, resetPage } = advertsSlice.actions;
 export default advertsSlice.reducer;
