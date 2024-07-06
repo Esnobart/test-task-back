@@ -1,5 +1,94 @@
+.advertsMainContainer {
+    display: flex;
+    gap: 24px;
+}
+
 .advertListPhoto {
     width: 290px;
     height: 310px;
     object-fit: cover;
+    border-radius: 5px;
+}
+
+.advertInfoContainer {
+    width: 426px;
+}
+
+.advertNameText {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+}
+
+.advertsNameAndPrice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advertsPriceAndFavorite {
+    display: flex;
+}
+
+.advertPrice {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: left;
+}
+
+.favoriteIcon {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.advertRateAndLocation {
+    display: flex;
+    gap: 12px
+}
+
+.advertRating {
+    display: flex;
+}
+
+.advertRatingText,
+.advertLocationText {
+    margin: 0;
+    margin-left: 2px;
+}
+
+.advertLocation {
+    display: flex;
+}
+
+.advertDescription {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.advertCategoriesList {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 426px;
+}
+
+.advertDetails {
+    background-color: #F2F4F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding-top: 6px;
+    padding-left: 9px;
+    padding-bottom: 6px;
+    padding-right: 9px;
 }

@@ -1,8 +1,10 @@
 // import { lazy } from "react"
-import { useEffect } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { AdvertsList } from "../AdvertsList/AdvertsList"
-import { fetchAdverts } from "../../redux/operations";
+import { Location } from "../Location/Location";
+import { Filters } from "../Filters/Filters";
+import css from './App.module.css'
+
 
 function App() {
   // const RegisterPage = lazy(() => import());
@@ -10,18 +12,14 @@ function App() {
 
 const dispatch = useDispatch();
 
-useEffect(() => {
-    dispatch(fetchAdverts())
-}, [dispatch]);
-
   return (
     <>
-    <div>
+    <div className={css.appMainContainer}>
       <div>
-        {/* <Location />
-        <Filters /> */}
+        <Location />
+        <Filters />
       </div>
-      <AdvertsList />
+      <AdvertsList  />
       </div>
     </>
   )

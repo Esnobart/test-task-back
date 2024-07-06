@@ -1,0 +1,13 @@
+.advertsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    list-style: none;
+}
+
+.advertsCard {
+    padding: 24px;
+    border: 1px solid #10182833;
+    border-radius: 10px;
+    max-width: 788px;
+}

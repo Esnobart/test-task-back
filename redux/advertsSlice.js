@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchAdverts } from "./operations";
 
 const advertsSlice = createSlice({
@@ -6,9 +6,21 @@ const advertsSlice = createSlice({
     initialState: {
         items: [],
         loading: false,
-        error: false
+        error: false,
+        page: 1,
+        hasMore: true
     },
-    extraReducers: builder => 
+    reducers: {
+        incrementPage(state) {
+            state.page += 1;
+        },
+        resetPage(state) {
+            state.page = 1;
+            state.items = [];
+            state.hasMore = true;
+        }
+    },
+    extraReducers: builder =>
         builder
             .addCase(fetchAdverts.pending, state => {
                 state.loading = true;
@@ -17,14 +29,16 @@ const advertsSlice = createSlice({
             .addCase(fetchAdverts.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.items = action.payload;
+                if (action.payload.length < 4) {
+                    state.hasMore = false;
+                }
+                state.items = [...state.items, ...action.payload];
             })
             .addCase(fetchAdverts.rejected, state => {
                 state.loading = false;
                 state.error = true;
             })
-})
+});
 
-export const { pending, success, error } = advertsSlice.actions;
-
-export default advertsSlice.reducer
+export const { incrementPage, resetPage } = advertsSlice.actions;
+export default advertsSlice.reducer;
