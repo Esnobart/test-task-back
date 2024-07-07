@@ -1,0 +1,139 @@
+.advertModal {
+    width: 902px;
+    height: 640px; 
+    overflow-y: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    z-index: 999;
+    scrollbar-width: none;
+}
+
+.advertModal::-webkit-scrollbar {
+    display: none; 
+}
+
+.advertOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.419);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.advertModalNameAndClose {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advertModalName {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    color: #101828;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.advertModalCloseBtn {
+    border: none;
+    background-color: white;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.advertRateAndLocation {
+    display: flex;
+    gap: 16px
+}
+
+.advertRating {
+    display: flex;
+}
+
+.advertRatingText,
+.advertLocationText {
+    margin: 0;
+    margin-left: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+.advertLocation {
+    display: flex;
+}
+
+.advertModalPrice {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 0;
+    margin-top: 16px;
+}
+
+.advertModalImageList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.advertModalImage {
+    height: 310px;
+}
+
+.advertModalImg {
+    width: 290px;
+    height: 310px;
+    object-fit: cover;
+}
+
+.advertModalDescription {
+    font-family: 'Inter', sans-serif;    
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    color: #475467;
+}
+
+.advertModalLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 40px;
+    height: 48px;
+    border-bottom: 1px solid #10182833;
+}
+
+.advertModalLinkBtn {
+    border: none;
+    background: white;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.advertModalLinkActive {
+    height: 47px;
+    border-bottom: 5px solid #E44848;
+}

@@ -1,0 +1,14 @@
+.advertCategorie {
+    display: flex;
+}
+
+.advertCategorieText {
+    margin: 0;
+    margin-left: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    color: #101828;
+}

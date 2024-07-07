@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAdverts } from "./operations";
+import { fetchAdverts, changeFavorite } from "./operations";
 
 const advertsSlice = createSlice({
     name: 'adverts',
@@ -29,9 +29,28 @@ const advertsSlice = createSlice({
             .addCase(fetchAdverts.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.items = [...state.items, ...action.payload];
+                state.items = [...state.items, ...action.payload.data];
+                state.hasMore = action.payload.hasMore;
             })
             .addCase(fetchAdverts.rejected, state => {
+                state.loading = false;
+                state.error = true;
+            })
+            .addCase(changeFavorite.pending, state => {
+                state.loading = true;
+                state.error = false;
+            })
+            .addCase(changeFavorite.fulfilled, (state, action) => {
+                state.loading = false;
+                state.error = false;
+                const updatedAdvert = action.payload.data; 
+                const index = state.items.findIndex(ad => ad._id === updatedAdvert._id);
+                if (index !== -1) {
+                    state.items[index].isFavorite = updatedAdvert.isFavorite;
+                }
+                state.hasMore = action.payload.hasMore;
+            })
+            .addCase(changeFavorite.rejected, state => {
                 state.loading = false;
                 state.error = true;
             })

@@ -1,0 +1,78 @@
+.bookingContainer {
+    width: 400px;
+    padding: 24px;
+    border: 1px solid #10182833;
+    border-radius: 10px;
+}
+
+.bookingMainText {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+    margin-bottom: 8px;
+    color: #101828;
+}
+
+.bookingText {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #475467;
+    margin: 0;
+}
+
+.bookingInputsContainer {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bookingInput {
+    height: 20px;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    background: #F7F7F7;
+}
+
+.bookingInput:focus,
+.bookingTextarea:focus {
+    outline: none;
+}
+
+.bookingTextarea {
+    height: 114px;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    background: #F7F7F7;
+    resize: none;
+}
+
+.bookingSubmitBtn {
+    width: 160px;
+    height: 56px;
+    border: none;
+    border-radius: 200px;
+    background: #E44848;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.005em;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}

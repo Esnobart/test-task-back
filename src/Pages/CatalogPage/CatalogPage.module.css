@@ -1,0 +1,7 @@
+.appMainContainer {
+    display: flex;
+}
+
+.LocationAndFilters {
+    width: 360px;
+}

@@ -1,0 +1,43 @@
+.StartPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+}
+
+.MainText {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #101828;
+}
+
+.Text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #101828;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.Button {
+    padding: 10px;
+    border: 1px solid #10182833;
+    border-radius: 20px;
+    transition: .3s;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #101828;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+}

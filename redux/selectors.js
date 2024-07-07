@@ -30,6 +30,9 @@ export const selectFilteredAdverts = createSelector(
         if (filters.showerBathroom) {
             filtered = filtered.filter(advert => advert.details.shower > 0 && advert.details.bathroom > 0);
         }
+        if (filters.isFavorite) {
+            filtered = filtered.filter(advert => advert.isFavorite !== false)
+        }
 
         return filtered;
     }

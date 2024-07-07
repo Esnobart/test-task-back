@@ -5,7 +5,8 @@ const initialFiltersState = {
     automatic: false,
     kitchen: false,
     tv: false,
-    showerBathroom: false
+    showerBathroom: false,
+    isFavorite: false
 };
 
 const filtersSlice = createSlice({

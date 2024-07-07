@@ -1,26 +1,28 @@
 import css from './Advert.module.css';
 import Categories from '../Categories/Categories';
-import svg from "../../icons.svg"
-
+import svg from '../../../icons.svg';
+import { useState, useEffect } from 'react';
+import { changeFavorite } from '../../../redux/operations';
+import { AdvertModal } from '../AdvertModal/AdvertModal';
+import { useDispatch } from 'react-redux';
 
 const filterCategories = (data) => {
     const categories = [];
 
-    // Adults and children
     if (data.adults > 0) categories.push({ name: 'adults', count: data.adults });
-    if (data.children > 0) categories.push({ name: 'children', count: data.children });
 
-    // Engine and transmission
     if (data.engine) categories.push({ name: data.engine, count: 1 });
     if (data.transmission) categories.push({ name: data.transmission, count: 1 });
 
-    // Details
     for (const [key, value] of Object.entries(data.details)) {
-        if (typeof value === 'number' && value > 0) {
-            categories.push({ name: key, count: value });
-        } else if (typeof value === 'string' && value !== '') {
-            categories.push({ name: key, count: value });
+        if (key === 'kitchen' || key === 'beds' || key === 'airConditioner') {
+            if (typeof value === 'number' && value > 0) {
+                categories.push({ name: key, count: value });
+            } else if (typeof value === 'string' && value !== '') {
+                categories.push({ name: key, count: value });
+            }
         }
+        
     }
 
     return categories;
@@ -28,7 +30,30 @@ const filterCategories = (data) => {
 
 
 const Advert = ({ data }) => {
-    const categories = filterCategories(data)
+    const dispatch = useDispatch();
+    const categories = filterCategories(data);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(data.isFavorite); 
+
+    useEffect(() => {
+        setIsFavorite(data.isFavorite); 
+    }, [data.isFavorite]);
+
+    const toggleFavorite = () => {
+        const newFavoriteState = !isFavorite; 
+        setIsFavorite(newFavoriteState); 
+
+        dispatch(changeFavorite({ _id: data._id, isFavorite: newFavoriteState }));
+    }
+
+    const openModal = () => {
+        setIsOpen(true)
+    }
+
+    const isClose = () => {
+        setIsOpen(false)
+    }
+
     return (
         <div key={data._id} className={css.advertsMainContainer}>
             <img src={data.gallery[0]} className={css.advertListPhoto} alt={data.name} />
@@ -36,10 +61,10 @@ const Advert = ({ data }) => {
                 <div className={css.advertsNameAndPrice}>
                     <h1 className={css.advertNameText}>{data.name}</h1>
                     <div className={css.advertsPriceAndFavorite}>
-                        <h2 className={css.advertPrice}>€{data.price}.00</h2>
-                        <button className={css.favoriteIcon}>
+                        <h2 className={css.advertPrice}>€{data.price},00</h2>
+                        <button className={css.favoriteIcon} onClick={toggleFavorite}>
                             <svg width="24" height="24">
-                                <use href={`${svg}#favorite-icon`}></use>
+                                <use href={data.isFavorite ? `${svg}#favoriteActive-icon` : `${svg}#favorite-icon` }></use>
                             </svg>
                         </button>
                     </div>
@@ -66,7 +91,9 @@ const Advert = ({ data }) => {
                         </li>
                     ))}
                 </ul>
+                <button type='button' className={css.advertShowMoreBtn} onClick={openModal}>Show more</button>
             </div>
+            {isOpen && <AdvertModal isOpen={isOpen} isClose={isClose} data={data} />}
         </div>
     )
 }
