@@ -1,8 +1,7 @@
-# React + Vite
+# Nightcrawler
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a website for finding motorhomes for traveling around the country.
 
-Currently, two official plugins are available:
+The database was slightly changed for convenience, as some parts of the project were unfinished (Such as Route to the Favorite page)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Mockapi url = https://65eb44fd43ce1641893399a6.mockapi.io
