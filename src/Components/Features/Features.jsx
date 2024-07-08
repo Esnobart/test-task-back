@@ -39,7 +39,7 @@ const detailsCategories = (data) => {
     return details;
 };
 
-export const Features = (data) => {
+export const Features = ({data}) => {
     const categoris = filterCategories(data);
     const details = detailsCategories(data)
     return (
