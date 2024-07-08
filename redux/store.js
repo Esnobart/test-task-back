@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import advertsReducer from "./advertsSlice"
 import filtersReducer from "./filterSlice"
+import favoriteReducer from "./favoriteSlice"
 
 const store = configureStore({
     reducer: {
         adverts: advertsReducer,
-        filters: filtersReducer
+        filters: filtersReducer,
+        favorite: favoriteReducer
     }
 })
 

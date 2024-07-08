@@ -1,18 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { selectLoading, selectFilteredAdverts, selectPage, selectHasMore } from "../../../redux/selectors";
-import { fetchAdverts } from "../../../redux/operations";
+import { useDispatch } from "react-redux";
 import Advert from "../Advert/Advert";
 import { Loading } from "../Loading/Loading";
 import css from './AdvertsList.module.css';
 import { useEffect, useRef } from "react";
-import { incrementPage } from "../../../redux/advertsSlice";
 
-export const AdvertsList = () => {
+export const AdvertsList = ({ renderFunc, changeFavor, incrementPage, selectPage, data, loading, hasMore }) => {
     const dispatch = useDispatch();
-    const loading = useSelector(selectLoading);
-    const filteredAdverts = useSelector(selectFilteredAdverts);
-    const page = useSelector(selectPage);
-    const hasMore = useSelector(selectHasMore);
 
     const isFirstRender = useRef(true);
 
@@ -22,12 +15,13 @@ export const AdvertsList = () => {
             return;
         }
 
-        dispatch(fetchAdverts(page));
+        dispatch(renderFunc(selectPage));
+        console.log('render')
 
         return () => {
-            dispatch(fetchAdverts(0));
+            dispatch(renderFunc(0));
         };
-    }, [page]);
+    }, [selectPage]);
 
     const handleShowMore = () => {
         dispatch(incrementPage());
@@ -37,11 +31,11 @@ export const AdvertsList = () => {
         <div className={css.advertsListContainer}>
             {loading && <Loading />}
             <ul className={css.advertsList}>
-                {filteredAdverts.map(advert => (
-                    <li className={css.advertsCard} key={advert._id}><Advert data={advert} /></li>
+                {data.map(advert => (
+                    <li className={css.advertsCard} key={advert._id}><Advert data={advert} changeFavor={changeFavor} /></li>
                 ))}
             </ul>
-            {hasMore && filteredAdverts.length > 0 && !loading && (
+            {hasMore && data.length > 0 && !loading && (
                 <button onClick={handleShowMore} className={css.loadMoreBtn}>
                     Load more
                 </button>

@@ -1,15 +1,32 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFilter, clearFilters } from '../../../redux/filterSlice';
 import { selectFilters } from '../../../redux/selectors';
+import { useNavigate, useLocation } from 'react-router-dom';
 import css from './Filters.module.css';
 import svg from '../../../icons.svg';
 
-export const Filters = () => {
+export const Filters = ({ resetPage }) => {
     const dispatch = useDispatch();
     const filters = useSelector(selectFilters);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleToggleFilter = (filterName) => {
         dispatch(toggleFilter(filterName));
+
+        if (filterName === 'isFavorite') {
+            if (!filters.isFavorite) {
+                if (location.pathname !== '/favorite') {
+                    dispatch(resetPage())
+                    navigate('/favorite');                  
+                }
+            } else {
+                if (location.pathname === '/favorite') {
+                    dispatch(resetPage())
+                    navigate('/catalog');
+                }
+            }
+        }
     };
 
     const clearFilter = () => {

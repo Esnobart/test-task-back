@@ -2,7 +2,6 @@ import css from './Advert.module.css';
 import Categories from '../Categories/Categories';
 import svg from '../../../icons.svg';
 import { useState, useEffect } from 'react';
-import { changeFavorite } from '../../../redux/operations';
 import { AdvertModal } from '../AdvertModal/AdvertModal';
 import { useDispatch } from 'react-redux';
 
@@ -29,7 +28,7 @@ const filterCategories = (data) => {
 };
 
 
-const Advert = ({data}) => {
+const Advert = ({data, changeFavor}) => {
     const dispatch = useDispatch();
     const categories = filterCategories(data);
     const [isOpen, setIsOpen] = useState(false);
@@ -41,9 +40,10 @@ const Advert = ({data}) => {
 
     const toggleFavorite = () => {
         const newFavoriteState = !isFavorite; 
-        setIsFavorite(newFavoriteState); 
+        setIsFavorite(newFavoriteState);
+        console.log(newFavoriteState)
 
-        dispatch(changeFavorite({ _id: data._id, isFavorite: newFavoriteState }));
+        dispatch(changeFavor({ _id: data._id, isFavorite: newFavoriteState }));
     }
 
     const openModal = () => {
