@@ -2,8 +2,8 @@
 
 This project is a website for finding motorhomes for traveling around the country.
 
-The database was slightly changed for convenience, as some parts of the project were unfinished (Such as Route to the Favorite page)
+The database was slightly changed for convenience and was added new database with favorite items. Some of functional works badly such as "Load more" button and filters (except Favorite).
 
-Also project is not working on Vercel. Vs code shows many problems with props validation, but run dev is working.
+Also project is not working on Vercel.
 
 Mockapi url = https://65eb44fd43ce1641893399a6.mockapi.io
