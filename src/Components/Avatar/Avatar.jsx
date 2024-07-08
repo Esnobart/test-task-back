@@ -1,4 +1,4 @@
-const Avatar = ({ name }) => {
+const Avatar = (name) => {
     const avatarStyle = {
         width: '60px',
         height: '60px',

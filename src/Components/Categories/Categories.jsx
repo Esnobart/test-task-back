@@ -1,7 +1,7 @@
 import svg from '../../../icons.svg';
 import css from './Categories.module.css'
 
-const Categories = ({ name, count }) => {
+const Categories = (name, count) => {
     const capitalizeWords = (str) => str.replace(/\b\w/g, char => char.toUpperCase());
     
     return (

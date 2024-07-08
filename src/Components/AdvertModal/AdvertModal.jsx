@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import svg from '../../../icons.svg';
 import css from './AdvertModal.module.css'
 
-export const AdvertModal = ({ isOpen, isClose, data}) => {
+export const AdvertModal = (isOpen, isClose, data) => {
     const [activeTab, setActiveTab] = useState(''); 
 
     const renderTabContent = () => {

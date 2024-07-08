@@ -29,7 +29,7 @@ const filterCategories = (data) => {
 };
 
 
-const Advert = ({ data }) => {
+const Advert = (data) => {
     const dispatch = useDispatch();
     const categories = filterCategories(data);
     const [isOpen, setIsOpen] = useState(false);

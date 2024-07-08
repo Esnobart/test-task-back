@@ -3,7 +3,7 @@ import Avatar from '../Avatar/Avatar';
 import svg from '../../../icons.svg';
 import { Booking } from '../Booking/Booking';
 
-const StarRating = ({ rating }) => {
+const StarRating = (rating) => {
     const starElements = [];
 
     for (let i = 0; i < rating; i++) {
@@ -30,7 +30,7 @@ const StarRating = ({ rating }) => {
     );
 };
 
-export const Reviews = ({ data }) => {
+export const Reviews = (data) => {
     return (
         <div className={css.advertReviews}>
             <ul className={css.advertReviewsList}>
