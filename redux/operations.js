@@ -26,13 +26,10 @@ export const changeFavorite = createAsyncThunk(
     async ({ _id, isFavorite }) => {
         try {
             const response = await axios.put(`/adverts/${_id}`, { isFavorite });
-            console.log(isFavorite)
             if (isFavorite === true) {
-                console.log(response.data)
                 await axios.post('/favorite', response.data)
             } 
             if (isFavorite === false) {
-                console.log(response.data)
                 await axios.delete(`/favorite/${response.data._id}`)
             }
             const hasMore = response.data.length !== 0;
@@ -55,7 +52,6 @@ export const fetchFavorite = createAsyncThunk(
                 }
             });
             const hasMore = response.data.length !== 0;
-            console.log(response.data)
             return { data: response.data, hasMore: hasMore };
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

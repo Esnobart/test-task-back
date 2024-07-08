@@ -38,6 +38,15 @@ export const selectFilteredAdverts = createSelector(
         if (filters.showerBathroom) {
             filtered = filtered.filter(advert => advert.details.shower > 0 && advert.details.bathroom > 0);
         }
+        if (filters.van) {
+            filtered = filtered.filter(advert => advert.form === 'van');
+        }
+        if (filters.fullyIntegrated) {
+            filtered = filtered.filter(advert => advert.form === 'fullyIntegrated');
+        }
+        if (filters.alcove) {
+            filtered = filtered.filter(advert => advert.form === 'alcove');
+        }
         if (filters.isFavorite) {
             filtered = filtered.filter(advert => advert.isFavorite !== false)
         }
@@ -65,6 +74,15 @@ export const selectFilteredFavorite = createSelector(
         }
         if (filters.showerBathroom) {
             filtered = filtered.filter(advert => advert.details.shower > 0 && advert.details.bathroom > 0);
+        }
+        if (filters.van) {
+            filtered = filtered.filter(advert => advert.form === 'van');
+        }
+        if (filters.fullyIntegrated) {
+            filtered = filtered.filter(advert => advert.form === 'fullyIntegrated');
+        }
+        if (filters.alcove) {
+            filtered = filtered.filter(advert => advert.form === 'alcove');
         }
         if (filters.isFavorite) {
             filtered = filtered.filter(advert => advert.isFavorite !== false)

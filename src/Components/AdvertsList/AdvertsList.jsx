@@ -16,7 +16,6 @@ export const AdvertsList = ({ renderFunc, changeFavor, incrementPage, selectPage
         }
 
         dispatch(renderFunc(selectPage));
-        console.log('render')
 
         return () => {
             dispatch(renderFunc(0));
