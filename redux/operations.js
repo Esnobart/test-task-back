@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+axios.defaults.baseURL = 'https://65eb44fd43ce1641893399a6.mockapi.io/';
 
 export const fetchAdverts = createAsyncThunk(
     'adverts/fetch',
